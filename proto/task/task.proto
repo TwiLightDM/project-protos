@@ -6,12 +6,14 @@ option go_package = "github.com/TwiLightDM/project-protos/proto/task;taskpb";
 message Task {
   string id = 1;
   string title = 2;
-  string userId = 3;
+  bool isDone = 3;
+  string userId = 4;
 }
 
 message CreateTaskRequest {
   string title = 1;
-  string userId = 2;
+  bool isDone = 2;
+  string userId = 3;
 }
 
 message CreateTaskResponse {
@@ -21,7 +23,8 @@ message CreateTaskResponse {
 message UpdateTaskRequest {
   string id = 1;
   optional string title = 2;
-  string userId = 3;
+  optional bool isDone = 3;
+  string userId = 4;
 }
 
 message UpdateTaskResponse {
@@ -35,11 +38,17 @@ message DeleteTaskRequest {
 
 message DeleteTaskResponse {}
 
-message ListTasksRequest {
+message ListTasksRequest {}
+
+message ListTasksResponse {
+  repeated Task tasks = 1;
+}
+
+message ListTasksByUserIdRequest {
   string userId = 1;
 }
 
-message ListTasksResponse {
+message ListTasksByUserIdResponse {
   repeated Task tasks = 1;
 }
 
@@ -56,5 +65,6 @@ service TaskService {
   rpc UpdateTask (UpdateTaskRequest) returns (UpdateTaskResponse);
   rpc DeleteTask (DeleteTaskRequest) returns (DeleteTaskResponse);
   rpc ListTasks  (ListTasksRequest)  returns (ListTasksResponse);
+  rpc ListTasksByUser  (ListTasksByUserIdRequest)  returns (ListTasksByUserIdResponse);
   rpc GetTask    (GetTaskRequest)    returns (GetTaskResponse);
 }
