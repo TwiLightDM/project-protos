@@ -3,8 +3,6 @@ syntax = "proto3";
 package task;
 option go_package = "github.com/TwiLightDM/project-protos/proto/task";
 
-import "google/protobuf/empty.proto";
-
 message Task {
   string id    = 1;
   string title = 2;
@@ -31,6 +29,8 @@ message DeleteTaskRequest {
   string id = 1;
 }
 
+message DeleteTaskResponse {}
+
 message ListTasksRequest {}
 
 message ListTasksResponse {
@@ -48,7 +48,7 @@ message GetTaskResponse {
 service TaskService {
   rpc CreateTask (CreateTaskRequest) returns (CreateTaskResponse);
   rpc UpdateTask (UpdateTaskRequest) returns (UpdateTaskResponse);
-  rpc DeleteTask (DeleteTaskRequest) returns (google.protobuf.Empty);
+  rpc DeleteTask (DeleteTaskRequest) returns (DeleteTaskResponse);
   rpc ListTasks  (ListTasksRequest)  returns (ListTasksResponse);
   rpc GetTask    (GetTaskRequest)    returns (GetTaskResponse);
 }
