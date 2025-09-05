@@ -4,7 +4,7 @@
 // 	protoc        v6.32.0
 // source: proto/task/task.proto
 
-package task
+package taskpb
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -545,7 +545,7 @@ const file_proto_task_task_proto_rawDesc = "" +
 	"\n" +
 	"DeleteTask\x12\x17.task.DeleteTaskRequest\x1a\x18.task.DeleteTaskResponse\x12<\n" +
 	"\tListTasks\x12\x16.task.ListTasksRequest\x1a\x17.task.ListTasksResponse\x126\n" +
-	"\aGetTask\x12\x14.task.GetTaskRequest\x1a\x15.task.GetTaskResponseB1Z/github.com/TwiLightDM/project-protos/proto/taskb\x06proto3"
+	"\aGetTask\x12\x14.task.GetTaskRequest\x1a\x15.task.GetTaskResponseB8Z6github.com/TwiLightDM/project-protos/proto/task;taskpbb\x06proto3"
 
 var (
 	file_proto_task_task_proto_rawDescOnce sync.Once
